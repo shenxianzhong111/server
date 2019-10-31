@@ -1,0 +1,163 @@
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+    <!--<meta charset="utf-8">-->
+    <!--<title>layui</title>-->
+    <!--<meta name="renderer" content="webkit">-->
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
+    <!--<link rel="stylesheet" href="//res.layui.com/layui/dist/css/layui.css"  media="all">-->
+    <!--&lt;!&ndash; 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 &ndash;&gt;-->
+<!--</head>-->
+<fieldset class="layui-elem-field layui-field-title">
+    <legend>账号列表</legend>
+</fieldset>
+<table class="layui-hide" id="test" lay-filter="test"></table>
+
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="getCheckData">获取选中行数据</button>
+        <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button>
+        <button class="layui-btn layui-btn-sm" lay-event="isAll">验证是否全选</button>
+    </div>
+</script>
+<div id="tan" style="display: none" class="layui-hide" >
+    {for start="1" end="8"}
+    <div id="item{$i}"></div>
+    {/for}
+</div>
+<div id="tanc" style="display: none ;margin-top: 40px" >
+    <div class="layui-form-item">
+        <label class="layui-form-label">账&nbsp;&nbsp;号</label>
+        <div class="layui-input-inline">
+            <input type="text" name="account"  id="upa"  class="layui-input" >
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">key&nbsp;&nbsp;值</label>
+        <div class="layui-input-inline">
+            <input type="text" id="upp" name="password" class="layui-input">
+        </div>
+    </div>
+</div>
+
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+
+<script>
+    layui.use('table', function(){
+        var table = layui.table;
+
+    table.render({
+            elem: '#test'
+            ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+            ,url: '{:url("boss/index/table")}'
+            ,page:true
+            ,toolbar: '#toolbarDemo' //开启头部工具栏，并为其绑定左侧模板
+            ,tool: '#barDemo'
+            ,title: '用户数据表'
+            ,cols: [[
+            {type: 'checkbox', fixed: 'left'}
+                ,{field:'id', title: 'ID', sort: true}
+                ,{field:'account', title: '用户名', width: '150', sort: true}
+                ,{field:'password', title: '密码', width: '200'}
+                ,{field:'key', title: 'key值', width: '150'}
+                ,{field:'error_time', title: '错误时间', width: '10%', minWidth: 80} //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
+                ,{field:'user_type', title: '用户类型', sort: true}
+                ,{field:'photo', title: '头像', width: '100'}
+                ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:150}
+            ]]
+        });
+        table.on('toolbar(test)', function(obj){
+            var checkStatus = table.checkStatus(obj.config.id);
+            switch(obj.event){
+                case 'getCheckData':
+                    var data = checkStatus.data;
+                    layer.alert(JSON.stringify(data));
+                    break;
+                case 'getCheckLength':
+                    var data = checkStatus.data;
+                    layer.msg('选中了：'+ data.length + ' 个');
+                    break;
+                case 'isAll':
+                    layer.msg(checkStatus.isAll ? '全选': '未全选');
+                    break;
+
+                //自定义头工具栏右侧图标 - 提示
+                case 'LAYTABLE_TIPS':
+                    layer.alert('这是工具栏右侧自定义的一个图标按钮');
+                    break;
+            };
+        });
+
+        table.on('tool(test)', function(obj){
+            var data = obj.data;
+            //console.log(obj)
+            if(obj.event === 'detail'){
+                $('#item1').text('ID:'+data.id)
+                $('#item2').text('账号:'+data.account)
+                $('#item3').text('密码:'+data.password)
+                $('#item4').text('key值:'+data.key)
+                $('#item5').text('错误时间记录:'+data.error_time)
+                $('#item6').text('用户类型:'+data.user_type)
+                $('#item7').text('头像:'+data.photo)
+                layer.open({
+                    icon: 1,
+                    type: 1,
+                    shade: 0,
+                    content: $('#tan')//这里content是一个DOM，注意：最好该元素要存放在body最外层，否则可能被其它的相对元素所影响
+                });
+            } else if(obj.event === 'del'){
+                layer.confirm('确定删除这条数据吗？', function(index) {
+                    var loading = layer.load(2);
+                    //提交 Ajax 成功后，关闭当前弹层并重载表格
+                                $.ajax({
+                                    type : 'post',
+                                    url : '{:url("boss/index/del")}',
+                                    data : {id :data.id },
+                                    dataType:'json',
+                                    success : function(res) {
+                                        layer.close(loading);
+                                        if (res.code == 0) {
+                                            layui.table.reload('test'); //重载表格
+                                            //layer.msg("你好！"+res.code);
+                                            layer.close(index); //执行关闭
+                                        } else {
+                                            layer.msg('删除异常');
+                            }
+                        }
+                    });
+                });
+            } else if(obj.event === 'edit'){
+                $('#upa').val(data.account)
+                $('#upp').val(data.key)
+                layer.open({
+                    title:'编辑',
+                    type:1,
+                    content:$('#tanc'),
+                    shade:0,
+                    skin:'layui-layer-molv',
+                    btnAlign: 'c',
+                    area: ['350px', '250px'],
+                    btn: ['确定', '取消'],
+                    yes: function(index, layero){
+                    $.post('{:url("boss/index/edit")}', {account:$('#upa').val(),key:$('#upp').val(),id:data.id},function (data) {
+                        layer.msg(data)
+                        layui.table.reload('test'); //重载表格
+                        }
+                    )
+                    layer.close(index)
+                    },
+
+                })
+            }
+        });
+
+
+
+    });
+</script>
