@@ -34,9 +34,9 @@
                     <div class="input_outer" style="border: hidden">
                         <div  id="tel" class="input_outer":class="tel.tips" style="width: 150px;float:left;">
                             <span class="us_uer"></span>
-                            <input id="tel_test" name="logtest" maxlength="5" value="" class="test_text" style="color: #FFFFFF !important; position:absolute; z-index:100;"value="" v-model="tel.val" @keyup="a(2,tel)" @focus="a(1,tel)" @blur="a(0,tel)" type="text" placeholder="手机验证">
+                            <input id="tel_test"  name="logtest" maxlength="5" value="" class="test_text" style="color: #FFFFFF !important; position:absolute; z-index:100;"value="" v-model="tel.val" @keyup="a(2,tel)" @focus="a(1,tel)" @blur="a(0,tel)" type="text" placeholder="手机验证">
                         </div>
-                        <div  id="tel_button" class="input_outer"  style="width: 150px;float:left;border:hidden; padding-top:10px;background: #0096e6; float:right;text-align: center;font-size: 20px">发送短信</div>
+                        <div id="tel_button"class="input_outer" :class="phone.back" style="width: 150px;float:left; cursor:pointer; padding-top: 10px; color: white; border:hidden; float:right;text-align: center;font-size: 20px" @click="send"> {{phone.key==0?'发送短信':phone.time+'s' }}</div>
                     </div>
                     <div  id="password_box" class="input_outer" :class="password1.tips">
                         <span class="us_uer"></span>
@@ -109,37 +109,45 @@
                     tips:{
                         red:false,
                         blue:false,
-                        green:false
+                        green:false,
                     },
                     val:''
                 },
+                phone:{
+                    key:0,
+                    time:60,
+                    back:{
+                        gray:false,
+                        blu:true
+                    }
+                },
                 enter:false
             },
+
             watch:{
-//                'account.val':function () {
-//                    this.gan(this.account);
-//                },
-//                'tel.val':function (val,oldval) {
-//                    if(val.length==6)this.tel.val=oldval
-//                    this.gan(this.tel);
-//
-//                },
-//                'password1.val':function (val,oldval) {
-//                    if(val.length==6)this.password1.val=oldval
-//                    this.gan(this.password1);
-//
-//                },
-//                'password2.val':function (val,oldval) {
-//                    if(val.length==6)this.password2.val=oldval
-//                    this.gan(this.password2);
-//
-//                },
-//                'test.val':function (val,oldval) {
-//                    if(val.length==6)this.test.val=oldval
-//                    this.gan(this.test);
-//                }
+                'phone.key':function (val,oldval) {
+                    if(val==1){
+                        this.phone.back.gray=true,
+                        this.killTime()
+                    }else {
+                        this.phone.back.gray=false,
+                        this.phone.time=60
+                    }
+                },
+                'phone.back.gray':function (val) {
+                    this.phone.back.blu=!this.phone.back.gray
+                }
             },
             methods:{
+                killTime:function () {
+                    var self=this;
+                    var b=setInterval(function () {
+                        if(self.phone.time-- <=0){
+                            clearInterval(b)
+                            self.phone.key=0
+                        }
+                    },1000)
+                },
                 //帐号
                 gan:function (input) {
                     if(!input.regular.test(input.val)){
@@ -160,6 +168,9 @@
                         this.gan(obj);
                     }
                     obj.tips.blue=event
+                },
+                send:function () {
+                    this.phone.key=1
                 },
                 register:function () {
                     var a=this.gan(this.account)
