@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6bdf3270-702a-4704-8ef6-b06ab62a30f3" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/public/nginx.htaccess" afterDir="false" />
+    <list default="true" id="6bdf3270-702a-4704-8ef6-b06ab62a30f3" name="Default" comment="ddd">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thinkphp/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/thinkphp/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +33,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -50,6 +51,9 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1l8oFWhZz7NsbaiXwvUcrcBE5yX" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -63,11 +67,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\soft\phpstudy_pro\WWW\server" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\PhpStudy\web\tp\tp\public\static\jcrop_clip" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\soft\phpstudy_pro\WWW\server" />
     </key>
   </component>
   <component name="RunManager">
@@ -105,13 +109,39 @@
       <workItem from="1572315050136" duration="53124000" />
       <workItem from="1572482066982" duration="9500000" />
     </task>
+    <task id="LOCAL-00001" summary="ddd">
+      <created>1606988435034</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1606988435034</updated>
+    </task>
+    <task id="LOCAL-00002" summary="ddd">
+      <created>1606988676879</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1606988676879</updated>
+    </task>
+    <task id="LOCAL-00003" summary="ddd">
+      <created>1606988715183</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1606988715183</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="ddd" />
+    <option name="LAST_COMMIT_MESSAGE" value="ddd" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="594" y="112" key="CommitChangelistDialog2" timestamp="1606988394567">
+    <state x="594" y="112" key="CommitChangelistDialog2" timestamp="1606988868296">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="594" y="112" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1606988394567" />
+    <state x="594" y="112" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1606988868296" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1606892419895">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -168,9 +198,13 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="759" y="242" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606892469124" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1606988404125">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1606988780778">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1606988404125" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1606988780778" />
+    <state x="600" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606988801505">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="600" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1606988801505" />
   </component>
 </project>
