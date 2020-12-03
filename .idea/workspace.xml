@@ -29,7 +29,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="sxz" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -50,6 +50,11 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1l8oFWhZz7NsbaiXwvUcrcBE5yX" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -82,6 +87,7 @@
       <list>
         <item itemvalue="JavaScript Debug.Index.php" />
         <item itemvalue="JavaScript Debug.Index.php" />
+        <item itemvalue="JavaScript Debug.Index.php" />
       </list>
     </recent_temporary>
   </component>
@@ -102,6 +108,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="594" y="112" key="CommitChangelistDialog2" timestamp="1606988394567">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="594" y="112" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1606988394567" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1606892419895">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -158,5 +168,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="759" y="242" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606892469124" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1606988404125">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1606988404125" />
   </component>
 </project>
